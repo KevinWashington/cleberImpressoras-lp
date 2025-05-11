@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ - Perguntas Frequentes | Cleber Impressoras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #3b82f6;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .faq-item {
+        transition: all 0.3s ease;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <i class="fas fa-print text-blue-600 text-3xl mr-2"></i>
+          <h1 class="text-2xl font-bold text-gray-800">
+            <a href="index.html">
+              Cleber<span class="text-blue-600">Impressoras</span>
+            </a>
+          </h1>
+        </div>
+
+        <nav class="hidden md:flex space-x-8">
+          <a
+            href="index.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Início</a
+          >
+          <a
+            href="products.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Produtos</a
+          >
+          <a
+            href="index.html#services"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Serviços</a
+          >
+          <a
+            href="index.html#about"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Sobre</a
+          >
+          <a
+            href="index.html#contact"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Contato</a
+          >
+        </nav>
+
+        <div class="flex items-center space-x-4">
+          <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+          <div class="relative">
+            <i
+              class="fas fa-shopping-cart text-gray-700 text-xl hover:text-blue-600 cursor-pointer"
+              id="cart-icon"
+            ></i>
+            <span
+              id="cart-count"
+              class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+              >0</span
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- FAQ Content -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 max-w-4xl">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+          Perguntas Frequentes
+        </h1>
+
+        <div class="mb-12">
+          <p class="text-gray-600 text-center max-w-2xl mx-auto">
+            Confira abaixo as respostas para as perguntas mais comuns sobre
+            nossos produtos e serviços. Se sua dúvida não estiver aqui, entre em
+            contato conosco.
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Categoria: Produtos -->
+          <div>
+            <h2 class="text-xl font-bold text-blue-600 mb-4">Sobre Produtos</h2>
+
+            <div class="space-y-4">
+              <!-- Pergunta 1 -->
+              <div
+                class="faq-item bg-gray-50 rounded-lg shadow-sm overflow-hidden"
+              >
+                <div
+                  class="faq-question p-4 cursor-pointer flex justify-between items-center"
+                >
+                  <h3 class="font-semibold text-gray-800">
+                    Vocês vendem cartuchos originais e compatíveis?
+                  </h3>
+                  <i
+                    class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+                  ></i>
+                </div>
+                <div class="faq-answer bg-white">
+                  <div class="p-4 text-gray-600 border-t">
+                    Sim, trabalhamos com ambas as opções. Os cartuchos originais
+                    são produzidos pelos fabricantes das impressoras (HP, Epson,
+                    Canon, etc.) e oferecem garantia de qualidade do fabricante.
+                    Já os compatíveis são produzidos por terceiros, com preços
+                    mais acessíveis, mas mantendo boa qualidade de impressão.
+                    Nossa equipe pode ajudar você a escolher a melhor opção para
+                    suas necessidades.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pergunta 2 -->
+              <div
+                class="faq-item bg-gray-50 rounded-lg shadow-sm overflow-hidden"
+              >
+                <div
+                  class="faq-question p-4 cursor-pointer flex justify-between items-center"
+                >
+                  <h3 class="font-semibold text-gray-800">
+                    Qual a diferença entre tinta e toner?
+                  </h3>
+                  <i
+                    class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+                  ></i>
+                </div>
+                <div class="faq-answer bg-white">
+                  <div class="p-4 text-gray-600 border-t">
+                    A tinta é um líquido usado em impressoras jato de tinta,
+                    enquanto o toner é um pó fino utilizado em impressoras
+                    laser. Impressoras jato de tinta são geralmente mais baratas
+                    inicialmente e boas para imprimir fotos e imagens coloridas.
+                    Já as impressoras laser tendem a ser mais rápidas e
+                    econômicas para grandes volumes de impressão, especialmente
+                    textos em preto.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pergunta 3 -->
+              <div
+                class="faq-item bg-gray-50 rounded-lg shadow-sm overflow-hidden"
+              >
+                <div
+                  class="faq-question p-4 cursor-pointer flex justify-between items-center"
+                >
+                  <h3 class="font-semibold text-gray-800">
+                    Posso recarregar meus cartuchos em vez de comprar novos?
+                  </h3>
+                  <i
+                    class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+                  ></i>
+                </div>
+                <div class="faq-answer bg-white">
+                  <div class="p-4 text-gray-600 border-t">
+                    Sim, oferecemos serviço de recarga para diversos modelos de
+                    cartuchos e toners. A recarga é uma alternativa econômica
+                    que pode reduzir seus custos em até 60% comparado à compra
+                    de um cartucho novo. No entanto, há alguns modelos que não
+                    são recomendados para recarga devido ao seu design. Nossa
+                    equipe pode informar se o seu modelo é adequado para esse
+                    serviço.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categoria: Serviços -->
+          <div>
+            <h2 class="text-xl font-bold text-blue-600 mb-4">Sobre Serviços</h2>
+
+            <div class="space-y-4">
+              <!-- Pergunta 1 -->
+              <div
+                class="faq-item bg-gray-50 rounded-lg shadow-sm overflow-hidden"
+              >
+                <div
+                  class="faq-question p-4 cursor-pointer flex justify-between items-center"
+                >
+                  <h3 class="font-semibold text-gray-800">
+                    Quanto tempo leva para realizar a manutenção da minha
+                    impressora?
+                  </h3>
+                  <i
+                    class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+                  ></i>
+                </div>
+                <div class="faq-answer bg-white">
+                  <div class="p-4 text-gray-600 border-t">
+                    O tempo varia dependendo do tipo de manutenção e do modelo
+                    da impressora. Uma manutenção preventiva básica geralmente
+                    leva entre 1 a 2 horas. Reparos mais complexos podem levar
+                    de 1 a 3 dias úteis. Para casos urgentes, oferecemos serviço
+                    prioritário com custo adicional. Sempre informamos o prazo
+                    estimado antes de iniciar o serviço.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pergunta 2 -->
+              <div
+                class="faq-item bg-gray-50 rounded-lg shadow-sm overflow-hidden"
+              >
+                <div
+                  class="faq-question p-4 cursor-pointer flex justify-between items-center"
+                >
+                  <h3 class="font-semibold text-gray-800">
+                    Vocês oferecem serviço em domicílio?
+                  </h3>
+                  <i
+                    class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+                  ></i>
+                </div>
+                <div class="faq-answer bg-white">
+                  <div class="p-4 text-gray-600 border-t">
+                    Não oferecemos atendimento em domicílio para
+                    residências. 
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pergunta 3 -->
+              <div
+                class="faq-item bg-gray-50 rounded-lg shadow-sm overflow-hidden"
+              >
+                <div
+                  class="faq-question p-4 cursor-pointer flex justify-between items-center"
+                >
+                  <h3 class="font-semibold text-gray-800">
+                    Qual a garantia dos serviços realizados?
+                  </h3>
+                  <i
+                    class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+                  ></i>
+                </div>
+                <div class="faq-answer bg-white">
+                  <div class="p-4 text-gray-600 border-t">
+                    Todos os nossos serviços têm garantia de 30 dias para mão de
+                    obra e peças substituídas. Para alguns modelos específicos
+                    ou serviços especiais, a garantia pode ser estendida. A
+                    garantia cobre problemas relacionados ao serviço realizado,
+                    não se aplicando a novos problemas ou causados pelo uso
+                    inadequado do equipamento.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categoria: Suporte -->
+          <div>
+            <h2 class="text-xl font-bold text-blue-600 mb-4">
+              Suporte e Atendimento
+            </h2>
+
+            <div class="space-y-4">
+              <!-- Pergunta 1 -->
+              <div
+                class="faq-item bg-gray-50 rounded-lg shadow-sm overflow-hidden"
+              >
+                <div
+                  class="faq-question p-4 cursor-pointer flex justify-between items-center"
+                >
+                  <h3 class="font-semibold text-gray-800">
+                    Como posso agendar um serviço?
+                  </h3>
+                  <i
+                    class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+                  ></i>
+                </div>
+                <div class="faq-answer bg-white">
+                  <div class="p-4 text-gray-600 border-t">
+                    Você pode agendar um serviço de várias formas:
+                    <ul class="list-disc pl-5 mt-2">
+                      <li>Ligando para (91) 98458-4521</li>
+                      <li>Enviando mensagem pelo WhatsApp</li>
+                      <li>Preenchendo o formulário de contato em nosso site</li>
+                      <li>Visitando nossa loja física</li>
+                    </ul>
+                    Nossa equipe entrará em contato para confirmar o agendamento
+                    e fornecer todas as informações necessárias.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pergunta 2 -->
+              <div
+                class="faq-item bg-gray-50 rounded-lg shadow-sm overflow-hidden"
+              >
+                <div
+                  class="faq-question p-4 cursor-pointer flex justify-between items-center"
+                >
+                  <h3 class="font-semibold text-gray-800">
+                    Quais são as formas de pagamento aceitas?
+                  </h3>
+                  <i
+                    class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+                  ></i>
+                </div>
+                <div class="faq-answer bg-white">
+                  <div class="p-4 text-gray-600 border-t">
+                    Aceitamos diversas formas de pagamento:
+                    <ul class="list-disc pl-5 mt-2">
+                      <li>Dinheiro</li>
+                      <li>Cartões de crédito</li>
+                      <li>Cartões de débito</li>
+                      <li>Transferência bancária</li>
+                      <li>PIX</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Pergunta 3 -->
+              <div
+                class="faq-item bg-gray-50 rounded-lg shadow-sm overflow-hidden"
+              >
+                <div
+                  class="faq-question p-4 cursor-pointer flex justify-between items-center"
+                >
+                  <h3 class="font-semibold text-gray-800">
+                    Vocês atendem a empresas ou apenas pessoas físicas?
+                  </h3>
+                  <i
+                    class="fas fa-chevron-down text-blue-600 transition-transform duration-300"
+                  ></i>
+                </div>
+                <div class="faq-answer bg-white">
+                  <div class="p-4 text-gray-600 border-t">
+                    Atendemos tanto pessoas físicas quanto empresas. Para
+                    clientes corporativos, oferecemos pacotes especiais de
+                    manutenção preventiva e condições especiais para compra
+                    regular de suprimentos. Também disponibilizamos contratos de
+                    manutenção que incluem visitas programadas e prioridade no
+                    atendimento. Entre em contato conosco para uma proposta
+                    personalizada para sua empresa.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <p class="text-gray-600 mb-6">
+            Não encontrou a resposta que procurava?
+          </p>
+          <a
+            href="index.html#contact"
+            class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300"
+          >
+            Entre em Contato
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center mb-4">
+              <i class="fas fa-print text-blue-400 text-2xl mr-2"></i>
+              <h3 class="text-xl font-bold">
+                Cleber<span class="text-blue-400">Impressoras</span>
+              </h3>
+            </div>
+            <p class="text-gray-400 mb-4">
+              Soluções completas em materiais e manutenção de impressoras.
+            </p>
+            <p class="text-gray-400 mb-4">
+              <a href="mailto:cleberimpressorasbreves@gmail.com" class="hover:text-white">
+                cleberimpressorasbreves@gmail.com
+              </a>
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.instagram.com/cleber_impressoras/"
+                class="text-gray-400 hover:text-white transition duration-300"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Produtos</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Cartuchos de Tinta</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Toners</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Papel</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Peças e Acessórios</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Kits de Manutenção</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Serviços</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Manutenção Preventiva</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Conserto Emergencial</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Recarga de Toner</a
+                >
+              </li>
+              <li></li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Configuração de Rede</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Links Úteis</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="faq.html"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="termos-de-servico.html"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Termos de Serviço</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 Cleber Impressoras. Todos os direitos reservados.
+          </p>
+          <div class="flex space-x-6">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
+              alt="Visa"
+              class="h-6 opacity-70"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png"
+              alt="Mastercard"
+              class="h-6 opacity-70"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo—pix_powered_by_Banco_Central_%28Brazil%2C_2020%29.svg/640px-Logo—pix_powered_by_Banco_Central_%28Brazil%2C_2020%29.svg.png"
+              alt="Pix"
+              class="h-6 opacity-70"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black invisible opacity-0 transition-opacity duration-300 z-40"
+    ></div>
+
+    <div
+      id="cart-sidebar"
+      class="fixed top-0 right-0 h-full w-80 md:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 flex flex-col"
+    >
+      <div class="bg-blue-600 text-white p-4 flex justify-between items-center">
+        <h3 class="text-xl font-bold">Seu Carrinho</h3>
+        <button id="close-cart" class="text-white focus:outline-none">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+
+      <div
+        id="empty-cart-message"
+        class="py-8 text-center text-gray-500 flex-grow flex flex-col items-center justify-center"
+      >
+        <i class="fas fa-shopping-cart text-4xl mb-3"></i>
+        <p>Seu carrinho está vazio</p>
+      </div>
+
+      <div id="cart-items" class="p-4 overflow-y-auto flex-grow"></div>
+
+      <div class="p-4 border-t">
+        <div class="flex justify-between font-bold text-lg mb-4">
+          <span>Total:</span>
+          <span id="cart-total">R$ 0,00</span>
+        </div>
+
+        <div class="flex space-x-2">
+          <button
+            id="clear-cart-btn"
+            class="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded flex-1"
+          >
+            Limpar
+          </button>
+          <button
+            id="checkout-btn"
+            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded flex-1"
+          >
+            Finalizar Compra
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a
+      href="https://wa.me/5591984584521"
+      target="_blank"
+      class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition duration-300 z-50"
+    >
+      <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Cart JavaScript -->
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+
+    <script>
+      // Mobile menu toggle
+      document
+        .querySelector(".md\\:hidden")
+        .addEventListener("click", function () {
+          alert("Menu mobile seria aberto aqui em uma implementação completa");
+        });
+
+      // FAQ accordion functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const faqQuestions = document.querySelectorAll(".faq-question");
+
+        faqQuestions.forEach((question) => {
+          question.addEventListener("click", function () {
+            const faqItem = this.parentElement;
+            const icon = this.querySelector("i");
+
+            // Verificar se este item já está ativo
+            const isActive = faqItem.classList.contains("active");
+
+            // Fechar todos os itens ativos
+            document.querySelectorAll(".faq-item.active").forEach((item) => {
+              item.classList.remove("active");
+              item.querySelector("i").style.transform = "rotate(0deg)";
+            });
+
+            // Ativar este item se não estava ativo
+            if (!isActive) {
+              faqItem.classList.add("active");
+              icon.style.transform = "rotate(180deg)";
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produtos - Cleber Impressoras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      .product-card:hover {
+        transform: scale(1.03);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #3b82f6;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .category-btn.active {
+        background-color: #2563eb;
+        color: white;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <a href="index.html" class="flex items-center">
+            <i class="fas fa-print text-blue-600 text-3xl mr-2"></i>
+            <h1 class="text-2xl font-bold text-gray-800">
+              Cleber<span class="text-blue-600">Impressoras</span>
+            </h1>
+          </a>
+        </div>
+
+        <nav class="hidden md:flex space-x-8">
+          <a
+            href="index.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Início</a
+          >
+          <a href="products.html" class="nav-link text-blue-600 font-medium"
+            >Produtos</a
+          >
+          <a
+            href="index.html#services"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Serviços</a
+          >
+          <a
+            href="index.html#about"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Sobre</a
+          >
+          <a
+            href="index.html#contact"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Contato</a
+          >
+        </nav>
+
+        <div class="flex items-center space-x-4">
+          <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+          <div class="relative" id="cart-icon">
+            <i
+              class="fas fa-shopping-cart text-gray-700 text-xl hover:text-blue-600 cursor-pointer"
+            ></i>
+            <span
+              id="cart-count"
+              class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+              >0</span
+            >
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3">
+          <a
+            href="index.html"
+            class="block py-2 text-gray-700 hover:text-blue-600"
+            >Início</a
+          >
+          <a href="products.html" class="block py-2 text-blue-600">Produtos</a>
+          <a
+            href="index.html#services"
+            class="block py-2 text-gray-700 hover:text-blue-600"
+            >Serviços</a
+          >
+          <a
+            href="index.html#about"
+            class="block py-2 text-gray-700 hover:text-blue-600"
+            >Sobre</a
+          >
+          <a
+            href="index.html#contact"
+            class="block py-2 text-gray-700 hover:text-blue-600"
+            >Contato</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="overlay" class="fixed inset-0 bg-black invisible opacity-0 transition-opacity duration-300 z-40"></div>
+    
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-80 md:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 flex flex-col">
+      <div class="bg-blue-600 text-white p-4 flex justify-between items-center">
+        <h3 class="text-xl font-bold">Seu Carrinho</h3>
+        <button id="close-cart" class="text-white focus:outline-none">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+      
+      <div id="empty-cart-message" class="py-8 text-center text-gray-500 flex-grow flex flex-col items-center justify-center">
+        <i class="fas fa-shopping-cart text-4xl mb-3"></i>
+        <p>Seu carrinho está vazio</p>
+      </div>
+      
+      <div id="cart-items" class="p-4 overflow-y-auto flex-grow"></div>
+      
+      <div class="border-t p-4">
+        <div class="flex justify-between mb-4">
+          <span class="font-bold">Total:</span>
+          <span class="font-bold" id="cart-total">R$ 0,00</span>
+        </div>
+        <button
+          id="checkout-btn"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+        >
+          Finalizar Compra
+        </button>
+        <button
+          id="clear-cart-btn"
+          class="w-full mt-2 border border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-bold py-2 px-4 rounded transition duration-300"
+        >
+          Limpar Carrinho
+        </button>
+      </div>
+    </div>
+
+    <!-- Page Header -->
+    <div class="bg-blue-600 text-white py-12">
+      <div class="container mx-auto px-4">
+        <h1 class="text-3xl md:text-4xl font-bold mb-2">Nossos Produtos</h1>
+        <p class="text-xl opacity-90">
+          Encontre tudo o que você precisa para sua impressora
+        </p>
+      </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="py-12">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row">
+          <!-- Filters Sidebar -->
+          <div class="lg:w-1/4 mb-8 lg:mb-0 lg:pr-8">
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+              <h3 class="font-bold text-lg mb-4">Busca</h3>
+              <div class="relative">
+                <input
+                  type="text"
+                  id="search-input"
+                  placeholder="Buscar produtos..."
+                  class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                />
+                <i
+                  class="fas fa-search absolute right-3 top-3 text-gray-400"
+                ></i>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+              <h3 class="font-bold text-lg mb-4">Categorias</h3>
+              <div class="space-y-2">
+                <button
+                  class="category-btn w-full text-left px-3 py-2 rounded hover:bg-blue-100 active"
+                  data-category="all"
+                >
+                  Todos os Produtos
+                </button>
+                <button
+                  class="category-btn w-full text-left px-3 py-2 rounded hover:bg-blue-100"
+                  data-category="tintas"
+                >
+                  Tintas
+                </button>
+                <button
+                  class="category-btn w-full text-left px-3 py-2 rounded hover:bg-blue-100"
+                  data-category="toners"
+                >
+                  Toner
+                </button>
+                <button
+                  class="category-btn w-full text-left px-3 py-2 rounded hover:bg-blue-100"
+                  data-category="papel"
+                >
+                  Papel
+                </button>
+                <button
+                  class="category-btn w-full text-left px-3 py-2 rounded hover:bg-blue-100"
+                  data-category="acessorios"
+                >
+                  Acessórios
+                </button>
+                <button
+                  class="category-btn w-full text-left px-3 py-2 rounded hover:bg-blue-100"
+                  data-category="kits"
+                >
+                  Kits
+                </button>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+              <h3 class="font-bold text-lg mb-4">Marcas</h3>
+              <div class="space-y-2">
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="brand-filter h-4 w-4 text-blue-600"
+                    value="hp"
+                  />
+                  <span class="ml-2">HP</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="brand-filter h-4 w-4 text-blue-600"
+                    value="epson"
+                  />
+                  <span class="ml-2">Epson</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="brand-filter h-4 w-4 text-blue-600"
+                    value="brother"
+                  />
+                  <span class="ml-2">Brother</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="brand-filter h-4 w-4 text-blue-600"
+                    value="samsung"
+                  />
+                  <span class="ml-2">Samsung</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="brand-filter h-4 w-4 text-blue-600"
+                    value="X-Full"
+                  />
+                  <span class="ml-2">X-Full</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Filtro para Original/Similar -->
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+              <h3 class="font-bold text-lg mb-4">Tipo</h3>
+              <div class="space-y-2">
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="type-filter h-4 w-4 text-blue-600"
+                    value="original"
+                  />
+                  <span class="ml-2">Original</span>
+                </label>
+                <label class="flex items-center">
+                  <input
+                    type="checkbox"
+                    class="type-filter h-4 w-4 text-blue-600"
+                    value="similar"
+                  />
+                  <span class="ml-2">Similar/Compatível</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-sm p-6">
+              <h3 class="font-bold text-lg mb-4">Preço</h3>
+              <div class="space-y-4">
+                <div>
+                  <input
+                    type="range"
+                    id="price-range"
+                    min="0"
+                    max="500"
+                    step="10"
+                    value="500"
+                    class="w-full"
+                  />
+                  <div class="flex justify-between mt-2">
+                    <span>R$ 0</span>
+                    <span id="price-value">R$ 500</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Products Grid -->
+          <div class="lg:w-3/4">
+            <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+              <div
+                class="flex flex-col md:flex-row justify-between items-start md:items-center"
+              >
+                <div class="mb-4 md:mb-0">
+                  <h2 class="text-2xl font-bold" id="products-title">
+                    Todos os Produtos
+                  </h2>
+                  <p class="text-gray-600">
+                    <span id="product-count">16</span> produtos encontrados
+                  </p>
+                </div>
+                <div class="flex items-center">
+                  <label class="mr-2">Ordenar por:</label>
+                  <select id="sort-select" class="border p-2 rounded">
+                    <option value="name-asc">Nome (A-Z)</option>
+                    <option value="name-desc">Nome (Z-A)</option>
+                    <option value="price-asc">Preço (menor-maior)</option>
+                    <option value="price-desc">Preço (maior-menor)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="products-grid"
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              <!-- Product cards will be added here dynamically -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-10 flex justify-center">
+              <div class="flex space-x-1">
+                <button
+                  class="px-4 py-2 border rounded hover:bg-blue-100"
+                  id="prev-page"
+                >
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <div id="pagination-numbers" class="flex space-x-1">
+                  <!-- Page numbers will be added here -->
+                </div>
+                <button
+                  class="px-4 py-2 border rounded hover:bg-blue-100"
+                  id="next-page"
+                >
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center mb-4">
+              <i class="fas fa-print text-blue-400 text-2xl mr-2"></i>
+              <h3 class="text-xl font-bold">
+                Cleber<span class="text-blue-400">Impressoras</span>
+              </h3>
+            </div>
+            <p class="text-gray-400 mb-4">
+              Soluções completas em materiais e manutenção de impressoras.
+            </p>
+            <p class="text-gray-400 mb-4">
+              <a href="mailto:cleberimpressorasbreves@gmail.com" class="hover:text-white">
+                cleberimpressorasbreves@gmail.com
+              </a>
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.instagram.com/cleber_impressoras/"
+                class="text-gray-400 hover:text-white transition duration-300"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Produtos</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Cartuchos de Tinta</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Toners</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Papel</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Peças e Acessórios</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Kits de Manutenção</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Serviços</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Manutenção Preventiva</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Conserto Emergencial</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Recarga de Toner</a
+                >
+              </li>
+              <li></li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Configuração de Rede</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Links Úteis</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="faq.html"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="termos-de-servico.html"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Termos de Serviço</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 Cleber Impressoras. Todos os direitos reservados.
+          </p>
+          <div class="flex space-x-6">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
+              alt="Visa"
+              class="h-6 opacity-70"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png"
+              alt="Mastercard"
+              class="h-6 opacity-70"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo—pix_powered_by_Banco_Central_%28Brazil%2C_2020%29.svg/640px-Logo—pix_powered_by_Banco_Central_%28Brazil%2C_2020%29.svg.png"
+              alt="Pix"
+              class="h-6 opacity-70"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a
+      href="https://wa.me/5591984584521"
+      target="_blank"
+      class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition duration-300 z-40"
+    >
+      <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Overlay -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black opacity-0 invisible transition-opacity duration-300 ease-in-out z-40"
+    ></div>
+
+    <script src="cart.js"></script>
+  </body>
+</html>

@@ -1,0 +1,288 @@
+/* Tema de cores baseado em #F19200 (HSL: 36, 100%, 47%) com tema escuro */
+:root {
+  --color-primary: #f19200; /* Tom principal - laranja */
+  --color-primary-light: #ffb133; /* Tom mais claro */
+  --color-primary-lighter: #ffc266; /* Tom ainda mais claro */
+  --color-primary-dark: #cc7b00; /* Tom mais escuro */
+  --color-primary-darker: #a36300; /* Tom ainda mais escuro */
+
+  /* Cores para tema escuro */
+  --dark-bg: #1a1a1a;
+  --dark-bg-lighter: #252525;
+  --dark-bg-light: #333333;
+  --dark-text: #e0e0e0;
+  --dark-text-muted: #a0a0a0;
+  --dark-border: #444444;
+
+  --hero-gradient-start: #f19200;
+  --hero-gradient-end: #cc7b00;
+}
+
+/* Estilos básicos para tema escuro */
+body {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.bg-white {
+  background-color: var(--dark-bg-lighter) !important;
+}
+
+.bg-gray-50 {
+  background-color: var(--dark-bg) !important;
+}
+
+.bg-gray-900 {
+  background-color: #000000 !important;
+}
+
+.text-gray-800 {
+  color: var(--dark-text) !important;
+}
+
+.text-gray-700 {
+  color: var(--dark-text) !important;
+}
+
+.text-gray-600 {
+  color: var(--dark-text-muted) !important;
+}
+
+.text-gray-500 {
+  color: var(--dark-text-muted) !important;
+}
+
+.text-gray-400 {
+  color: var(--dark-text-muted) !important;
+}
+
+.border-gray-300 {
+  border-color: var(--dark-border) !important;
+}
+
+/* Substituições para componentes específicos */
+.shadow-md,
+.shadow-sm,
+.shadow-lg {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Substituições de classe para cores do Tailwind */
+.bg-blue-600 {
+  background-color: var(--color-primary) !important;
+}
+
+.bg-blue-700 {
+  background-color: var(--color-primary-dark) !important;
+}
+
+.bg-blue-800 {
+  background-color: var(--color-primary-darker) !important;
+}
+
+.bg-blue-100 {
+  background-color: var(--dark-bg-light) !important;
+}
+
+.bg-blue-400 {
+  background-color: var(--color-primary-light) !important;
+}
+
+.bg-blue-500 {
+  background-color: var(--color-primary) !important;
+}
+
+.hover\:bg-blue-600:hover {
+  background-color: var(--color-primary) !important;
+}
+
+.hover\:bg-blue-700:hover {
+  background-color: var(--color-primary-dark) !important;
+}
+
+.hover\:bg-blue-800:hover {
+  background-color: var(--color-primary-darker) !important;
+}
+
+.hover\:bg-blue-900:hover {
+  background-color: var(--color-primary-darker) !important;
+}
+
+.hover\:bg-blue-100:hover {
+  background-color: var(--dark-bg-light) !important;
+}
+
+.hover\:bg-gray-100:hover {
+  background-color: var(--dark-bg-light) !important;
+}
+
+.text-blue-600 {
+  color: var(--color-primary) !important;
+}
+
+.text-blue-400 {
+  color: var(--color-primary-light) !important;
+}
+
+.border-blue-600 {
+  border-color: var(--color-primary) !important;
+}
+
+.ring-blue-600 {
+  --tw-ring-color: var(--color-primary) !important;
+}
+
+.hover\:text-blue-600:hover {
+  color: var(--color-primary) !important;
+}
+
+.hover\:bg-white:hover {
+  background-color: var(--dark-bg-lighter) !important;
+}
+
+.hover\:text-white:hover {
+  color: var(--dark-text) !important;
+}
+
+/* Gradiente do herói */
+.hero-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--hero-gradient-start) 0%,
+    var(--hero-gradient-end) 100%
+  ) !important;
+}
+
+/* Após do nav-link */
+.nav-link::after {
+  background-color: var(--color-primary) !important;
+}
+
+/* Ajustes para service cards */
+.service-card:hover {
+  box-shadow: 0 10px 25px rgba(241, 146, 0, 0.25) !important;
+}
+
+/* Cards de serviço e testemunho */
+.service-card,
+.testimonial-card {
+  background-color: var(--dark-bg-lighter) !important;
+}
+
+/* Cartões de produto */
+.product-card {
+  background-color: var(--dark-bg-lighter) !important;
+}
+
+/* Inputs e campos de formulário */
+input,
+select,
+textarea {
+  background-color: var(--dark-bg-light) !important;
+  color: var(--dark-text) !important;
+  border-color: var(--dark-border) !important;
+}
+
+/* Logo da impressora */
+.fa-print.text-blue-600 {
+  color: var(--color-primary) !important;
+}
+
+/* Botão do whatsapp mantido verde */
+.bg-green-500 {
+  background-color: #10b981 !important;
+}
+
+.hover\:bg-green-600:hover {
+  background-color: #059669 !important;
+}
+
+/* Ícones de check-circle */
+.text-green-500 {
+  color: var(--color-primary) !important;
+}
+
+/* Ajuste de cores para o toast */
+.toast.bg-green-600 {
+  background-color: var(--color-primary) !important;
+}
+
+
+/* Estilos para blocos de informação no About */
+.absolute.bg-white {
+  background-color: var(--dark-bg-lighter) !important;
+}
+
+/* Estrelas nas avaliações */
+.text-yellow-400 {
+  color: var(--color-primary) !important;
+}
+
+/* Efeitos para hero section com imagem de fundo */
+.hero-section {
+  min-height: 80vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.text-shadow-sm {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Animações */
+.animate-slow-zoom {
+  animation: slowZoom 30s infinite alternate;
+}
+
+.animate-slide-right {
+  animation: slideRight 1s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes slowZoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Hover com transição suave para botões da hero */
+.hero-section a {
+  transition: all 0.3s ease;
+}
+
+/* Ajustes específicos para a imagem da impressora */
+.hero-section .floating-button {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}

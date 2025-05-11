@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Cleber Impressoras - Materiais para Impressora e Manutenção Especializada
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      .hero-gradient {
+        background: linear-gradient(135deg, #f19200 0%, #cc7b00 100%);
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .product-card:hover {
+        transform: scale(1.03);
+      }
+
+      .testimonial-card {
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: #3b82f6;
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .floating-button {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header/Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <div class="flex items-center">
+          <i class="fas fa-print text-blue-600 text-3xl mr-2"></i>
+          <h1 class="text-2xl font-bold text-gray-800">
+            Cleber<span class="text-blue-600">Impressoras</span>
+          </h1>
+        </div>
+
+        <nav class="hidden md:flex space-x-8">
+          <a
+            href="#home"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Início</a
+          >
+          <a
+            href="products.html"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Produtos</a
+          >
+          <a
+            href="#services"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Serviços</a
+          >
+          <a
+            href="#about"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Sobre</a
+          >
+          <a
+            href="#contact"
+            class="nav-link text-gray-700 hover:text-blue-600 font-medium"
+            >Contato</a
+          >
+        </nav>
+
+        <div class="flex items-center space-x-4">
+          <button class="md:hidden text-gray-700" id="mobile-menu-btn">
+            <i class="fas fa-bars text-2xl"></i>
+          </button>
+          <div class="relative">
+            <i
+              class="fas fa-shopping-cart text-gray-700 text-xl hover:text-blue-600 cursor-pointer"
+              id="cart-icon"
+            ></i>
+            <span
+              id="cart-count"
+              class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"
+              >0</span
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="hero-section text-white py-20 relative overflow-hidden"
+    >
+      <!-- Overlay para melhorar legibilidade do texto sobre a imagem -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40 z-10"
+      ></div>
+
+      <!-- Imagem de fundo -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="/assets/herobackground.jpg"
+          alt="Background"
+          class="w-full h-full object-cover animate-slow-zoom"
+        />
+      </div>
+
+      <div
+        class="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-20"
+      >
+        <div class="md:w-1/2 mb-10 md:mb-0 animate-slide-right">
+          <h2 class="text-4xl md:text-5xl font-bold mb-6 text-shadow">
+            Soluções completas para suas impressoras
+          </h2>
+          <p class="text-xl mb-8 opacity-90 text-shadow-sm">
+            Toners, cartuchos, peças e manutenção especializada para todos os
+            modelos de impressoras.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
+          >
+            <a
+              href="products.html"
+              class="bg-white text-blue-600 hover:bg-gray-100 font-bold py-3 px-6 rounded-lg text-center transition duration-300 hover:shadow-lg transform hover:-translate-y-1"
+              >Ver Produtos</a
+            >
+            <a
+              href="#contact"
+              class="border border-white hover:bg-white hover:text-blue-600 font-bold py-3 px-6 rounded-lg text-center transition duration-300 hover:shadow-lg transform hover:-translate-y-1"
+              >Agendar Serviço</a
+            >
+          </div>
+        </div>
+        <!-- <div class="md:w-1/2 flex justify-center animate-fade-in">
+          <img
+            src="https://images.unsplash.com/photo-1591488320449-011701bb6701?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            alt="Impressora profissional"
+            class="rounded-lg shadow-2xl max-w-full h-auto floating-button relative z-10"
+          />
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div
+            class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300"
+          >
+            <div
+              class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-truck text-blue-600 text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800">Entrega Rápida</h3>
+            <p class="text-gray-600">
+              Entregamos em até 24h em breves e até 48h para outras
+              localidades da região.
+            </p>
+          </div>
+
+          <div
+            class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300"
+          >
+            <div
+              class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800">Garantia Total</h3>
+            <p class="text-gray-600">
+              Todos nossos produtos e serviços possuem garantia de qualidade e
+              satisfação.
+            </p>
+          </div>
+
+          <div
+            class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition duration-300"
+          >
+            <div
+              class="bg-blue-100 w-14 h-14 rounded-full flex items-center justify-center mb-4"
+            >
+              <i class="fas fa-headset text-blue-600 text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-gray-800">Suporte Especializado</h3>
+            <p class="text-gray-600">
+              Nossa equipe está disponível para ajudar com qualquer dúvida ou
+              problema.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">Produtos em Destaque</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Confira nossos produtos mais populares.
+          </p>
+        </div>
+
+        <div id="home-products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Produtos serão carregados dinamicamente aqui -->
+        </div>
+
+        <div class="text-center mt-10">
+          <a
+            href="products.html"
+            class="inline-block border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-bold py-2 px-6 rounded transition duration-300"
+          >
+            Ver Todos os Produtos
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">Nossos Serviços</h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Manutenção especializada para manter sua impressora funcionando como
+            nova.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Service 1 -->
+          <div
+            class="bg-gray-50 rounded-lg p-6 service-card transition duration-300"
+          >
+            <div
+              class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
+            >
+              <i class="fas fa-tools text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-center mb-3">
+              Manutenção Preventiva
+            </h3>
+            <p class="text-gray-600 text-center mb-4">
+              Limpeza e ajustes periódicos para evitar falhas e prolongar a vida
+              útil da sua impressora.
+            </p>
+            <div class="text-center">
+              <span class="text-blue-600 font-bold">A partir de R$ 99,90</span>
+            </div>
+          </div>
+
+          <!-- Service 2 -->
+          <div
+            class="bg-gray-50 rounded-lg p-6 service-card transition duration-300"
+          >
+            <div
+              class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
+            >
+              <i class="fas fa-bolt text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-center mb-3">
+              Conserto Emergencial
+            </h3>
+            <p class="text-gray-600 text-center mb-4">
+              Serviço rápido para resolver problemas críticos que estão parando
+              sua produção.
+            </p>
+            <div class="text-center">
+              <span class="text-blue-600 font-bold">A partir de R$ 149,90</span>
+            </div>
+          </div>
+
+          <!-- Service 3 -->
+          <div
+            class="bg-gray-50 rounded-lg p-6 service-card transition duration-300"
+          >
+            <div
+              class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
+            >
+              <i class="fas fa-sync-alt text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-center mb-3">Recarga de Toner</h3>
+            <p class="text-gray-600 text-center mb-4">
+              Recarregamos seu toner com tinta de alta qualidade, economizando
+              até 60%.
+            </p>
+            <div class="text-center">
+              <span class="text-blue-600 font-bold">A partir de R$ 49,90</span>
+            </div>
+          </div>
+
+          <!-- Service 4 -->
+          <div
+            class="bg-gray-50 rounded-lg p-6 service-card transition duration-300"
+          >
+            <div
+              class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
+            >
+              <i class="fas fa-network-wired text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-center mb-3">
+              Configuração de Rede
+            </h3>
+            <p class="text-gray-600 text-center mb-4">
+              Configuramos sua impressora na rede para compartilhamento entre
+              vários computadores.
+            </p>
+            <div class="text-center">
+              <span class="text-blue-600 font-bold">A partir de R$ 79,90</span>
+            </div>
+          </div>
+
+          <!-- Service 5 -->
+          <div
+            class="bg-gray-50 rounded-lg p-6 service-card transition duration-300"
+          >
+            <div
+              class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
+            >
+              <i class="fas fa-print text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-center mb-3">
+              Aluguel de Impressoras
+            </h3>
+            <p class="text-gray-600 text-center mb-4">
+              Alugue impressoras para eventos ou necessidades temporárias com
+              manutenção inclusa.
+            </p>
+            <div class="text-center">
+              <span class="text-blue-600 font-bold">Consultar preço</span>
+            </div>
+          </div>
+
+          <!-- Service 6 -->
+          <!-- <div
+            class="bg-gray-50 rounded-lg p-6 service-card transition duration-300"
+          >
+            <div
+              class="bg-blue-600 text-white w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"
+            >
+              <i class="fas fa-home text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-center mb-3">
+              Serviço Domiciliar
+            </h3>
+            <p class="text-gray-600 text-center mb-4">
+              Nossa equipe vai até você para realizar os serviços no local, sem
+              necessidade de transporte.
+            </p>
+            <div class="text-center">
+              <span class="text-blue-600 font-bold">A partir de R$ 129,90</span>
+            </div>
+          </div> -->
+        </div>
+
+        <div class="text-center mt-10">
+          <a
+            href="#contact"
+            class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition duration-300"
+          >
+            Agendar Serviço
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row items-center">
+          <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">
+              Sobre a Cleber Impressoras
+            </h2>
+            <p class="text-gray-600 mb-4">
+              Fundada em 2003, a Cleber Impressoras nasceu da paixão por
+              tecnologia e da necessidade de oferecer soluções de qualidade no
+              mercado de impressão.
+            </p>
+            <p class="text-gray-600 mb-6">
+              Com uma equipe altamente qualificada, nos tornamos referência em
+              materiais e manutenção de impressoras na região.
+            </p>
+
+            <div class="grid grid-cols-2 gap-4 mb-6">
+              <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <span class="text-gray-700">20+ anos de experiência</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <span class="text-gray-700">Equipe certificada</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <span class="text-gray-700">Produtos originais</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                <span class="text-gray-700">Garantia em todos serviços</span>
+              </div>
+            </div>
+
+            <a
+              href="#contact"
+              class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded transition duration-300"
+            >
+              Fale Conosco
+            </a>
+          </div>
+
+          <div class="lg:w-1/2">
+            <div class="relative">
+              <img
+                src="/assets/equipeCleberImpressoras.jpg"
+                alt="Equipe Cleber Impressoras"
+                class="rounded-lg shadow-lg w-full"
+              />
+              <div
+                class="absolute -bottom-5 -right-5 bg-white p-4 rounded-lg shadow-lg"
+              >
+                <div class="flex items-center">
+                  <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-3">
+                    <i class="fas fa-medal text-xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-gray-800">Melhor avaliação</h4>
+                    <p class="text-gray-600 text-sm">
+                      4.9/5 baseado em 287 avaliações
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-800 mb-4">
+            O que nossos clientes dizem
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            A satisfação dos nossos clientes é nossa maior recompensa.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Testimonial 1 -->
+          <div class="bg-gray-50 p-6 rounded-lg testimonial-card">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-user text-blue-600"></i>
+              </div>
+              <div>
+                <h4 class="font-bold">Carlos Silva</h4>
+                <div class="flex text-yellow-400 text-sm">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "A Cleber Impressoras salvou meu negócio quando minha impressora
+              parou de funcionar às vésperas de uma entrega importante. O
+              técnico foi extremamente profissional e resolveu o problema em
+              menos de uma hora. Recomendo!"
+            </p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="bg-gray-50 p-6 rounded-lg testimonial-card">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-user text-blue-600"></i>
+              </div>
+              <div>
+                <h4 class="font-bold">Ana Paula Rocha</h4>
+                <div class="flex text-yellow-400 text-sm">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "Compro toners na Cleber Impressoras há mais de 3 anos e nunca
+              tive problemas. A qualidade é excelente e o preço muito
+              competitivo. Além disso, o atendimento é sempre atencioso e
+              rápido. Parabéns pela loja!"
+            </p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="bg-gray-50 p-6 rounded-lg testimonial-card">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-user text-blue-600"></i>
+              </div>
+              <div>
+                <h4 class="font-bold">Roberto Almeida</h4>
+                <div class="flex text-yellow-400 text-sm">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 italic">
+              "Contratei o serviço de manutenção preventiva para as 5
+              impressoras do meu escritório e o resultado foi impressionante. As
+              máquinas estão funcionando melhor do que nunca e tivemos uma
+              redução significativa nos gastos com consertos. Excelente
+              custo-benefício!"
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h3 class="text-center text-gray-500 text-sm font-semibold mb-8">
+          TRABALHAMOS COM AS PRINCIPAIS MARCAS
+        </h3>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/HP_logo_2012.svg/1200px-HP_logo_2012.svg.png"
+            alt="HP"
+            class="h-8 opacity-60 hover:opacity-100 transition duration-300"
+          />
+          <img
+            src="assets/epson-logo.png"
+            alt="Epson"
+            class="h-8 opacity-60 hover:opacity-100 transition duration-300"
+          />
+          <img
+            src="assets/brother-logo.png"
+            alt="Brother"
+            class="h-8 opacity-60 hover:opacity-100 transition duration-300"
+          />
+          <img
+            src="assets/canon-logo.png"
+            alt="Canon"
+            class="h-8 opacity-60 hover:opacity-100 transition duration-300"
+          />
+          <img
+            src="assets/samsung-logo.png"
+            alt="Samsung"
+            class="h-8 opacity-60 hover:opacity-100 transition duration-300"
+          />
+          <img
+            src="assets/kyocera-logo.png"
+            alt="Kyocera"
+            class="h-8 opacity-60 hover:opacity-100 transition duration-300"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row">
+          <div class="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">
+              Entre em Contato
+            </h2>
+            <p class="text-gray-600 mb-6">
+              Tem dúvidas sobre nossos produtos ou serviços? Preencha o
+              formulário ao lado ou entre em contato por um dos canais abaixo.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">Endereço</h4>
+                  <p class="text-gray-600">
+                    Rua Cap. Assis, 76 - Centro, Breves, PA
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-center">
+                <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">Telefone</h4>
+                  <p class="text-gray-600">(91) 98458-4521</p>
+                </div>
+              </div>
+
+              <div class="flex items-center">
+                <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">Email</h4>
+                  <p class="text-gray-600">cleberimpressorasbreves@gmail.com</p>
+                </div>
+              </div>
+
+              <div class="flex items-center">
+                <div class="bg-blue-100 text-blue-600 p-3 rounded-full mr-4">
+                  <i class="fas fa-clock"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-gray-800">
+                    Horário de Funcionamento
+                  </h4>
+                  <p class="text-gray-600">
+                    Seg-Sex: 8h às 12h e 14h às 18h | Sáb: 8h às 12h
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8">
+              <h4 class="font-bold text-gray-800 mb-4">
+                Siga-nos nas redes sociais
+              </h4>
+              <div class="flex space-x-4">
+                <a
+                  href="https://www.instagram.com/cleber_impressoras/"
+                  class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition duration-300"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:w-1/2">
+            <form id="whatsapp-form" class="bg-gray-50 p-6 rounded-lg shadow-sm">
+              <div id="form-message" class="mb-4 hidden"></div>
+              
+              <div class="mb-4">
+                <label for="user_name" class="block text-gray-700 font-medium mb-2"
+                  >Nome Completo <span class="text-red-500">*</span></label
+                >
+                <input
+                  type="text"
+                  id="user_name"
+                  name="user_name"
+                  required
+                  class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  placeholder="Seu nome"
+                />
+              </div>
+
+              <div class="mb-4">
+                <label
+                  for="subject"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Assunto <span class="text-red-500">*</span></label
+                >
+                <select
+                  id="subject"
+                  name="subject"
+                  required
+                  class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                >
+                  <option value="">Selecione um assunto</option>
+                  <option value="Consulta sobre produtos">Consulta sobre produtos</option>
+                  <option value="Agendamento de serviço">Agendamento de serviço</option>
+                  <option value="Suporte técnico">Suporte técnico</option>
+                  <option value="Outro">Outro</option>
+                </select>
+              </div>
+
+              <div class="mb-4">
+                <label
+                  for="message"
+                  class="block text-gray-700 font-medium mb-2"
+                  >Mensagem <span class="text-red-500">*</span></label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                  class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                  placeholder="Sua mensagem..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                id="submit-btn"
+                class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded transition duration-300 flex items-center justify-center"
+              >
+                <i class="fab fa-whatsapp text-xl mr-2"></i>
+                Enviar via WhatsApp
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Google Maps -->
+    <section class="py-12 bg-blue-600 text-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-6">
+          <h3 class="text-2xl font-bold mb-2">Nossa Localização</h3>
+          <p class="max-w-2xl mx-auto opacity-90">
+            Venha nos visitar! Estamos localizados em um ponto de fácil acesso
+            no centro da cidade de Breves, PA.
+          </p>
+        </div>
+
+        <div class="w-full h-96 rounded-lg overflow-hidden shadow-lg">
+          <!-- Google Maps iframe - Localização real da loja Cleber Impressoras em Breves, PA -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d612.8599723258865!2d-50.48680867462363!3d-1.6884811080781636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9298399a9562faff%3A0x33edd1e07bc6f116!2sCLEBER%20-%20IMPRESSORAS!5e0!3m2!1spt-BR!2sbr!4v1719538842842!5m2!1spt-BR!2sbr"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            class="rounded-lg"
+            title="Localização da Loja Cleber Impressoras"
+          >
+          </iframe>
+        </div>
+
+        <div
+          class="flex flex-col md:flex-row justify-center items-center mt-6 space-y-4 md:space-y-0 md:space-x-6"
+        >
+          <div class="flex items-center">
+            <div class="bg-white/20 p-3 rounded-full mr-3">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="text-left">
+              <p class="font-bold">Rua Cap. Assis, 76 - Centro</p>
+              <p>Breves, PA - CEP: 68800-000</p>
+            </div>
+          </div>
+
+          <div class="flex items-center">
+            <div class="bg-white/20 p-3 rounded-full mr-3">
+              <i class="fas fa-directions"></i>
+            </div>
+            <a
+              href="https://www.google.com/maps/place/CLEBER+-+IMPRESSORAS/@-1.6884783,-50.4866276,19.52z/data=!4m15!1m8!3m7!1s0x929839b3e9bbbf6f:0x59e4ff76d482c9af!2sR.+Cap.+Assis,+76+-+Breves,+PA,+68800-000!3b1!8m2!3d-1.688646!4d-50.486503!16s%2Fg%2F11x2mbj6bs!3m5!1s0x9298399a9562faff:0x33edd1e07bc6f116!8m2!3d-1.6888698!4d-50.4864552!16s%2Fg%2F11w4tkxwrv?entry=ttu"
+              target="_blank"
+              class="bg-white text-blue-600 px-4 py-2 rounded-full font-medium hover:bg-gray-100 transition duration-300"
+            >
+              Como Chegar
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center mb-4">
+              <i class="fas fa-print text-blue-400 text-2xl mr-2"></i>
+              <h3 class="text-xl font-bold">
+                Cleber<span class="text-blue-400">Impressoras</span>
+              </h3>
+            </div>
+            <p class="text-gray-400 mb-4">
+              Soluções completas em materiais e manutenção de impressoras.
+            </p>
+            <p class="text-gray-400 mb-4">
+              <a href="mailto:cleberimpressorasbreves@gmail.com" class="hover:text-white">
+                cleberimpressorasbreves@gmail.com
+              </a>
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.instagram.com/cleber_impressoras/"
+                class="text-gray-400 hover:text-white transition duration-300"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Produtos</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Cartuchos de Tinta</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Toners</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Papel</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Peças e Acessórios</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Kits de Manutenção</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Serviços</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Manutenção Preventiva</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Conserto Emergencial</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Recarga de Toner</a
+                >
+              </li>
+              <li></li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Configuração de Rede</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Links Úteis</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="faq.html"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="termos-de-servico.html"
+                  class="text-gray-400 hover:text-white transition duration-300"
+                  >Termos de Serviço</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 Cleber Impressoras. Todos os direitos reservados.
+          </p>
+          <div class="flex space-x-6">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png"
+              alt="Visa"
+              class="h-6 opacity-70"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png"
+              alt="Mastercard"
+              class="h-6 opacity-70"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo—pix_powered_by_Banco_Central_%28Brazil%2C_2020%29.svg/640px-Logo—pix_powered_by_Banco_Central_%28Brazil%2C_2020%29.svg.png"
+              alt="Pix"
+              class="h-6 opacity-70"
+            />
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div id="overlay" class="fixed inset-0 bg-black invisible opacity-0 transition-opacity duration-300 z-40"></div>
+    
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-80 md:w-96 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 flex flex-col">
+      <div class="bg-blue-600 text-white p-4 flex justify-between items-center">
+        <h3 class="text-xl font-bold">Seu Carrinho</h3>
+        <button id="close-cart" class="text-white focus:outline-none">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+      
+      <div id="empty-cart-message" class="py-8 text-center text-gray-500 flex-grow flex flex-col items-center justify-center">
+        <i class="fas fa-shopping-cart text-4xl mb-3"></i>
+        <p>Seu carrinho está vazio</p>
+      </div>
+      
+      <div id="cart-items" class="p-4 overflow-y-auto flex-grow"></div>
+      
+      <div class="border-t p-4">
+        <div class="flex justify-between mb-4">
+          <span class="font-bold">Total:</span>
+          <span class="font-bold" id="cart-total">R$ 0,00</span>
+        </div>
+        <button
+          id="checkout-btn"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+        >
+          Finalizar Compra
+        </button>
+        <button
+          id="clear-cart-btn"
+          class="w-full mt-2 border border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-bold py-2 px-4 rounded transition duration-300"
+        >
+          Limpar Carrinho
+        </button>
+      </div>
+    </div>
+
+    <!-- WhatsApp Float Button -->
+    <a
+      href="https://wa.me/5591984584521"
+      target="_blank"
+      class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition duration-300 z-30"
+    >
+      <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <!-- Cart JavaScript -->
+    <script src="cart.js"></script>
+    
+    <script>
+      // Simple JavaScript for mobile menu toggle
+      document
+        .querySelector(".md\\:hidden")
+        .addEventListener("click", function () {
+          // This would toggle a mobile menu in a complete implementation
+          alert("Menu mobile seria aberto aqui em uma implementação completa");
+        });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+      
+      // Configuração do formulário de WhatsApp
+      document.addEventListener("DOMContentLoaded", function() {
+        const whatsappForm = document.getElementById('whatsapp-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const formMessage = document.getElementById('form-message');
+        
+        // Número do WhatsApp para envio (incluir código do país)
+        const whatsappNumber = "5591984584521";
+        
+        if (whatsappForm) {
+          whatsappForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obter os valores do formulário
+            const userName = document.getElementById('user_name').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Formatar a mensagem para o WhatsApp
+            const whatsappMessage = 
+              `*Nova mensagem do site*\n\n` +
+              `*Nome:* ${userName}\n` +
+              `*Assunto:* ${subject}\n\n` +
+              `*Mensagem:*\n${message}`;
+            
+            // Codificar a mensagem para URL
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Criar o link do WhatsApp
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            try {
+              // Abrir o WhatsApp em uma nova janela/aba
+              window.open(whatsappUrl, '_blank');
+              
+              // Mostrar mensagem de sucesso
+              formMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+              formMessage.classList.add('bg-green-100', 'text-green-700', 'p-4', 'rounded');
+              formMessage.textContent = 'Você será redirecionado para o WhatsApp para enviar sua mensagem.';
+              
+              // Resetar o formulário
+              whatsappForm.reset();
+            } catch (error) {
+              // Em caso de erro
+              formMessage.classList.remove('hidden', 'bg-green-100', 'text-green-700');
+              formMessage.classList.add('bg-red-100', 'text-red-700', 'p-4', 'rounded');
+              formMessage.textContent = 'Ocorreu um erro ao abrir o WhatsApp. Por favor, tente novamente.';
+              console.error('WhatsApp error:', error);
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
