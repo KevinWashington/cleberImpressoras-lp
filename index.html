@@ -1028,17 +1028,104 @@
       <i class="fab fa-whatsapp text-2xl"></i>
     </a>
 
+    <!-- Mobile Menu Sidebar -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black invisible opacity-0 transition-opacity duration-300 z-40"></div>
+    
+    <div id="mobile-menu-sidebar" class="fixed top-0 left-0 h-full w-72 bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out z-50 flex flex-col">
+      <div class="bg-blue-600 text-white p-4 flex justify-between items-center">
+        <div class="flex items-center">
+          <i class="fas fa-print text-white text-2xl mr-2"></i>
+          <h3 class="text-xl font-bold">Cleber Impressoras</h3>
+        </div>
+        <button id="close-mobile-menu" class="text-white focus:outline-none">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+      
+      <div class="py-4 flex-grow overflow-y-auto">
+        <nav class="px-4">
+          <a href="#home" class="mobile-menu-link block py-3 px-2 border-b border-gray-100 text-gray-800 hover:bg-gray-50">
+            <i class="fas fa-home w-6 text-blue-600"></i> Início
+          </a>
+          <a href="products.html" class="mobile-menu-link block py-3 px-2 border-b border-gray-100 text-gray-800 hover:bg-gray-50">
+            <i class="fas fa-shopping-bag w-6 text-blue-600"></i> Produtos
+          </a>
+          <a href="#services" class="mobile-menu-link block py-3 px-2 border-b border-gray-100 text-gray-800 hover:bg-gray-50">
+            <i class="fas fa-tools w-6 text-blue-600"></i> Serviços
+          </a>
+          <a href="#about" class="mobile-menu-link block py-3 px-2 border-b border-gray-100 text-gray-800 hover:bg-gray-50">
+            <i class="fas fa-info-circle w-6 text-blue-600"></i> Sobre
+          </a>
+          <a href="#contact" class="mobile-menu-link block py-3 px-2 border-b border-gray-100 text-gray-800 hover:bg-gray-50">
+            <i class="fas fa-envelope w-6 text-blue-600"></i> Contato
+          </a>
+        </nav>
+        
+        <div class="px-4 mt-6">
+          <div class="bg-gray-50 p-4 rounded-lg">
+            <h4 class="font-bold text-gray-800 mb-2">Precisa de ajuda?</h4>
+            <p class="text-gray-600 text-sm mb-3">Entre em contato via WhatsApp para suporte imediato.</p>
+            <a href="https://wa.me/5591984584521" target="_blank" class="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded transition duration-300">
+              <i class="fab fa-whatsapp mr-2"></i> Falar com Atendente
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="p-4 border-t border-gray-200 text-center text-sm text-gray-500">
+        © 2025 Cleber Impressoras
+      </div>
+    </div>
+
     <!-- Cart JavaScript -->
     <script src="cart.js"></script>
     
     <script>
-      // Simple JavaScript for mobile menu toggle
-      document
-        .querySelector(".md\\:hidden")
-        .addEventListener("click", function () {
-          // This would toggle a mobile menu in a complete implementation
-          alert("Menu mobile seria aberto aqui em uma implementação completa");
+      // Mobile menu functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuSidebar = document.getElementById('mobile-menu-sidebar');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+        // Open mobile menu
+        mobileMenuBtn.addEventListener('click', function() {
+          mobileMenuOverlay.classList.remove('invisible', 'opacity-0');
+          mobileMenuOverlay.classList.add('opacity-50');
+          mobileMenuSidebar.classList.remove('-translate-x-full');
+          document.body.style.overflow = 'hidden'; // Prevent scrolling
         });
+
+        // Close mobile menu
+        function closeMobileMenu() {
+          mobileMenuOverlay.classList.add('invisible', 'opacity-0');
+          mobileMenuOverlay.classList.remove('opacity-50');
+          mobileMenuSidebar.classList.add('-translate-x-full');
+          document.body.style.overflow = ''; // Re-enable scrolling
+        }
+
+        closeMobileMenuBtn.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close menu when clicking on links
+        mobileMenuLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            closeMobileMenu();
+            
+            // If it's an anchor link, handle smooth scrolling
+            const href = this.getAttribute('href');
+            if (href.startsWith('#') && href.length > 1) {
+              const targetElement = document.querySelector(href);
+              if (targetElement) {
+                setTimeout(() => {
+                  targetElement.scrollIntoView({ behavior: 'smooth' });
+                }, 300); // Small delay to allow menu to close first
+              }
+            }
+          });
+        });
+      });
 
       // Smooth scrolling for anchor links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
