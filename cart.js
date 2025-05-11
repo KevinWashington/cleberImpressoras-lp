@@ -291,7 +291,7 @@ function createProductCard(product) {
         <div class="relative">
             <img src="${product.image}" alt="${
     product.name
-  }" class="w-full h-48 object-cover">
+  }" class="w-full h-48 object-contain">
             ${discount || tag}
             ${typeBadge}
         </div>
@@ -433,7 +433,7 @@ function updateCartUI() {
       cartItem.innerHTML = `
         <img src="${item.image || "#"}" alt="${
         item.name
-      }" class="w-16 h-16 object-cover rounded">
+      }" class="w-16 h-16 object-contain bg-slate-50 rounded">
         <div class="ml-3 flex-grow">
           <h4 class="font-medium text-sm">${item.name}</h4>
           <p class="text-blue-600 font-bold">R$ ${item.price.toFixed(2)}</p>

@@ -24,6 +24,10 @@ body {
   color: var(--dark-text);
 }
 
+.product-card > div:first-child{
+  background-color: white !important;
+}
+
 .bg-white {
   background-color: var(--dark-bg-lighter) !important;
 }
