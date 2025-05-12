@@ -11,7 +11,7 @@
       "description": "Pouch Film para plastificação A4, alta transparência, pacote com 100 unidades.",
       "featured": true,
       "discount": null,
-      "hot": true,
+      "hot": false,
       "type": "original"
     },
     {
@@ -25,7 +25,7 @@
       "description": "Toner universal compatível com impressoras Samsung, modelo HF2050.",
       "featured": false,
       "discount": null,
-      "hot": true,
+      "hot": false,
       "type": "similar"
     },
     {
@@ -39,7 +39,7 @@
       "description": "Toner universal compatível com impressoras HP, modelo HF2008.",
       "featured": false,
       "discount": null,
-      "hot": true,
+      "hot": false,
       "type": "similar"
     },
     {
@@ -67,7 +67,7 @@
       "description": "Tinta preta 544 original Epson, 70ml por unidade.",
       "featured": false,
       "discount": null,
-      "hot": false,
+      "hot": true,
       "type": "original"
     },
     {
@@ -235,7 +235,7 @@
       "description": "Papel fotográfico premium 180g, pacote com 20 folhas A4.",
       "featured": false,
       "discount": null,
-      "hot": false,
+      "hot": true,
       "type": "original"
     },
     {
@@ -445,7 +445,7 @@
       "description": "Compatível com modelos Epson L3150, L3250, L3110, L1110 e L5190.",
       "featured": false,
       "discount": null,
-      "hot": false,
+      "hot": true,
       "type": "similar"
     },
     {
