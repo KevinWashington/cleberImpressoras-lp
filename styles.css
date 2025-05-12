@@ -287,6 +287,5 @@ textarea {
 
 /* Ajustes específicos para a imagem da impressora */
 .hero-section .floating-button {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
 }

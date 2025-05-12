@@ -80,7 +80,6 @@ function initializeApp() {
     const savedCart = localStorage.getItem("cart");
     if (savedCart) {
       cart = JSON.parse(savedCart);
-      console.log("Carrinho carregado do localStorage:", cart);
     }
   } catch (error) {
     console.error("Erro ao carregar carrinho do localStorage:", error);
@@ -421,10 +420,8 @@ function updateCartUI() {
   // Verificar se o carrinho está vazio
   if (cart.length === 0) {
     emptyCartMessage?.classList.remove("hidden");
-    console.log("Carrinho vazio");
   } else {
     emptyCartMessage?.classList.add("hidden");
-    console.log(`Renderizando ${cart.length} itens no carrinho`);
 
     // Adicionar cada item ao carrinho
     cart.forEach((item) => {
